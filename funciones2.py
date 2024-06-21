@@ -70,7 +70,7 @@ def comprar_asiento():
         
         while True:
             if bus[fila_asiento-1][columna_asiento-1] == "O":
-                bus.insert([fila_asiento-1][columna_asiento-1],"X")
+                bus[fila_asiento-1][columna_asiento-1]="X"
                 break
             else:
                 if bus[fila_asiento-1][columna_asiento-1] == "X":
@@ -106,7 +106,7 @@ def comprar_asiento():
         while True:
             try:
                 num_telefono = int(input('Ingrese su numero celular: '))
-                if len(str(num_telefono)) == 9 and num_telefono[0] == "9":
+                if len(str(num_telefono)) == 9:
                     print('Numero celular registrado!')
                     limpiar_pantalla_esperar()
                     break
@@ -171,7 +171,7 @@ def generar_archivo_csv():
         try:
             with open(f"{nombre_archivo}.csv","x",newline="") as archivo:
                 escritor = csv.writer(archivo)
-                escritor.writerow(ventas)
+                escritor.writerows(ventas)
             print('ARCHIVO CREADO!')
         except:
             print('EL NOMBRE DEL ARCHIVO YA SE ENCUENTRA REGISTRADO!')
